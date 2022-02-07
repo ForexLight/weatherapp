@@ -1,0 +1,39 @@
+@import "../../../../styles/variables.scss";
+
+.current_day {
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: $border-radius;
+  box-shadow: 2px 5px 25px -3px $box-shadow;
+  background: $lite-background;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+  svg{
+    width: 120px;
+    height: 120px;
+  }
+  .today_degrees {
+    color: $primary-color;
+    font-size: 96px;
+    font-weight: 500;
+  }
+  .today_info {
+    font-size: 40px;
+    color: $lite-color;
+  }
+}
+
+.bottom {
+  .curr_time,
+  .curr_city{
+    color: $base-color;
+    font-size: 25px;
+  }
+}

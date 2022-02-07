@@ -1,0 +1,53 @@
+@import "../../../../styles/variables.scss";
+
+.today_info {
+  position: relative;
+  padding: 40px;
+  max-width: 750px;
+  width: 100%;
+  backdrop-filter: $lite-background;
+  border-radius: $border-radius;
+  box-shadow: 2px 5px 25px -3px $box-shadow;
+  background: $lite-background;
+}
+
+.item {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+  .identification,
+  .identification_name, {
+    margin-right: 20px;
+  }
+  .identification {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 1px 4px 4px -1px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+  }
+  .identification_name, .identification_value {
+    font-size: 14px;
+  }
+  .identification_name {
+    color: $base-color;
+  }
+  .identification_value {
+    color: $lite-color;
+  }
+
+}
+.cloud_image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}

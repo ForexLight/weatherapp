@@ -2,17 +2,18 @@ import React from "react"
 
 import sl from './ThisDay.module.scss'
 import SharedSvgSelector from "../../../../assets/icons/shared/SharedSvgSelector";
+import {Weather} from "../../../../store/types/types";
 
 interface Props {
-
+    weather: Weather
 }
 
-export const ThisDay = (props: Props) => {
+export const ThisDay = ({weather}: Props) => {
     return (
         <div className={sl.current_day}>
             <div className={sl.top}>
                 <div className={sl.top_info}>
-                    <div className={sl.today_degrees}>20°</div>
+                    <div className={sl.today_degrees}>{Math.floor(weather.main.temp)}</div>
                     <div className={sl.today_info}>Сегодня</div>
                 </div>
                 <SharedSvgSelector id='sun'/>

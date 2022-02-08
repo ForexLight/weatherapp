@@ -5,6 +5,8 @@
 }
 
 body {
+  background: var(#{--body-background-default});
+  position: relative;
   font-family: 'Montserrat', sans-serif;
 
 }

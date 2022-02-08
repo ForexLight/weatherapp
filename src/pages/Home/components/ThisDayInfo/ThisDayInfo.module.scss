@@ -5,10 +5,9 @@
   padding: 40px;
   max-width: 750px;
   width: 100%;
-  backdrop-filter: $lite-background;
   border-radius: $border-radius;
   box-shadow: 2px 5px 25px -3px $box-shadow;
-  background: $lite-background;
+  background: var(#{--components-background-default});
 }
 
 .item {
@@ -41,7 +40,7 @@
     color: $base-color;
   }
   .identification_value {
-    color: $lite-color;
+    color: var(#{--text-color-default})
   }
 
 }

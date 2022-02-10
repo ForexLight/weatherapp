@@ -11,6 +11,25 @@
 .wrapper {
   display: flex;
   align-items: center;
+  input{
+    background-color: var(#{--card-background-default});
+    border: none;
+    border-radius:5px 0 0 5px;
+    color: var(#{--text-color-default});
+    padding: 6px;
+  }
+  button {
+    margin-left: 2px;
+    padding: 6px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: var(#{--text-color-default});
+    background: var(#{--card-background-default});
+    &:hover {
+      background: $primary-color;
+    }
+  }
+
 }
 
 .change_theme, .logo {

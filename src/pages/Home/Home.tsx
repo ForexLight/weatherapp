@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 
 import sl from './Home.module.scss'
 import {ThisDay} from "./components/ThisDay/ThisDay";
@@ -10,24 +10,27 @@ import {useSelector} from "react-redux";
 import {selectCurrentWeatherData} from "../../store/selectors";
 
 interface Props {
-
+    city:string,
+    setPopup: () => void
 }
 
 export const Home = (props: Props) => {
 
+    const {city} = props
+    const [err, setErr] = useState(false)
     const dispatch = useCustomDispatch();
 
     const {weather} = useCustomSelector(selectCurrentWeatherData)
 
     useEffect(() => {
-        dispatch(fetchCurrentWeather('paris'))
-    }, [])
+        dispatch(fetchCurrentWeather(city))
+    }, [city])
 
     return (
         <div className={sl.home}>
             <div className={sl.wrapper}>
                 <ThisDay weather={weather}/>
-                <ThisDayInfo />
+                <ThisDayInfo weather={weather}/>
             </div>
             <Days />
         </div>

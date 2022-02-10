@@ -4,9 +4,12 @@ import sl from './ThisDayInfo.module.scss'
 
 import cloud from '../../../../assets/images/cloud.png'
 import {ThisDayItem} from "./ThisDayItem";
+import {Weather} from "../../../../store/types/types";
+import getWindDirection from "../../../../shared/helper/getWindDirrection";
+
 
 interface Props {
-
+    weather: Weather
 }
 
 export interface Item {
@@ -15,28 +18,31 @@ export interface Item {
     value: string
 }
 
-export const ThisDayInfo = (props: Props) => {
+export const ThisDayInfo = ({weather}: Props) => {
+
+    const windDirection = getWindDirection(weather.wind)
+    const {temp, feels_like, pressure, humidity} = weather.main
 
     const items = [
         {
             icon_id: 'temp',
             name: 'Температура',
-            value: '20° - ощущается как 17°'
+            value: `${Math.floor(temp)}° - ощущается как ${Math.floor(feels_like)}°`
         },
         {
             icon_id: 'pressure',
             name: 'Давление ',
-            value: '765 мм ртутного столба - нормальное'
+            value: `${pressure} мм ртутного столба`
         },
         {
             icon_id: 'extent',
-            name: 'Осадки',
-            value: 'Без осадков'
+            name: 'Влажность',
+            value: `Влажность ${humidity}%`
         },
         {
             icon_id: 'wind',
             name: 'Ветер',
-            value: '3 м/с юго-запад - легкий ветер'
+            value: windDirection
         }
     ]
 

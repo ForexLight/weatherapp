@@ -22,18 +22,18 @@ export const Home = (props: Props) => {
     const dispatch = useCustomDispatch();
 
     const {weather} = useCustomSelector(selectCurrentWeatherData)
-    const {weekWeather} = useCustomSelector(selectWeekWeatherData)
 
-    console.log(weather)
-    console.log(weekWeather)
+    const weekWeather = useCustomSelector(selectWeekWeatherData).weather
+
+
 
     useEffect(() => {
         dispatch(fetchCurrentWeather(city))
     }, [city])
 
     useEffect(() => {
-        dispatch(fetchWeekWeather({lon: weather.cord.lon, lat: weather.cord.lat}))
-    }, [city])
+        dispatch(fetchWeekWeather(weather.cord))
+    }, [weather])
 
     return (
         <div className={sl.home}>
@@ -41,7 +41,7 @@ export const Home = (props: Props) => {
                 <ThisDay weather={weather}/>
                 <ThisDayInfo weather={weather}/>
             </div>
-            <Days />
+            <Days weekWeather={weekWeather}/>
         </div>
     )
 }

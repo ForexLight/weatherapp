@@ -20,7 +20,7 @@ export type Weather = {
     name: string
 }
 
-type dayWeather = {
+export type dayWeather = {
     dt: number,
     temp: {
         min: number,
@@ -33,6 +33,6 @@ type dayWeather = {
 
 
 export type weekWeather = {
-    daily: any
+    daily: dayWeather[]
 }
 

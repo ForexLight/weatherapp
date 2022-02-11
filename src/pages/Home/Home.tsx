@@ -6,8 +6,9 @@ import {ThisDayInfo} from "./components/ThisDayInfo/ThisDayInfo";
 import {Days} from "./components/Days/Days";
 import {useCustomDispatch, useCustomSelector} from "../../hooks/store";
 import {fetchCurrentWeather} from "../../store/thunks/fetchCurrentWeather";
+import {fetchWeekWeather} from '../../store/thunks/fetchWeekWeather'
 import {useSelector} from "react-redux";
-import {selectCurrentWeatherData} from "../../store/selectors";
+import {selectCurrentWeatherData, selectWeekWeatherData} from "../../store/selectors";
 
 interface Props {
     city:string,
@@ -21,9 +22,17 @@ export const Home = (props: Props) => {
     const dispatch = useCustomDispatch();
 
     const {weather} = useCustomSelector(selectCurrentWeatherData)
+    const {weekWeather} = useCustomSelector(selectWeekWeatherData)
+
+    console.log(weather)
+    console.log(weekWeather)
 
     useEffect(() => {
         dispatch(fetchCurrentWeather(city))
+    }, [city])
+
+    useEffect(() => {
+        dispatch(fetchWeekWeather({lon: weather.cord.lon, lat: weather.cord.lat}))
     }, [city])
 
     return (

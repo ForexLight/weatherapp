@@ -1,5 +1,5 @@
 import  { AxiosResponse} from "axios";
-import {Weather} from "../store/types/types";
+import {Weather, weekWeather} from "../store/types/types";
 import api from "../axios";
 
 interface Coords {
@@ -12,9 +12,12 @@ export class WeatherService {
         return api.get<Weather>(
             `/weather?q=${city}`)
     }
-    // @ts-ignore
-    static getWeekWeather (coord:Coords): Promise<AxiosResponse<Weather>>{
 
+    static getWeekWeather (cord:Coords): Promise<AxiosResponse<weekWeather>>{
+
+        return api.get<weekWeather>(
+            `onecall?lat=${cord.lat}&lon=${cord.lon}`
+        )
 
     }
 }

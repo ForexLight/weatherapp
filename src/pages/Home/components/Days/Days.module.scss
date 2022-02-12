@@ -1,5 +1,12 @@
 @import "../../../../styles/variables.scss";
 
+.wrapper {
+
+  max-width: 100%;
+  @media screen and (max-width: 1200px) {
+    overflow:auto;
+  }
+}
 .days {
   display: flex;
   justify-content: space-between;
@@ -9,12 +16,14 @@
   background: var(#{--components-background-default});
   box-shadow: 2px 5px 25px -3px $box-shadow;
   border-radius:0 0 $border-radius $border-radius;
+  @media screen and (max-width: 1200px) {
+    flex-wrap: nowrap;
+
+    width: 1200px;
+  }
 
 }
-// var(#{--components-background-default})
-//var(#{--text-color-default})
-// var(#{--card-background-default})
-// var(#{--card-shadow-default})
+
 .card {
   display: flex;
   flex-direction: column;

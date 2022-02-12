@@ -3,11 +3,21 @@
 .today_info {
   position: relative;
   padding: 40px;
+  overflow: auto;
   max-width: 750px;
   width: 100%;
   border-radius: $border-radius;
   box-shadow: 2px 5px 25px -3px $box-shadow;
   background: var(#{--components-background-default});
+  @media screen and (max-width: 1200px) {
+    max-width: 55%;
+  }
+  @media screen and (max-width: 900px) {
+    margin-top: 20px;
+    align-self: center;
+    max-width: 95%;
+  }
+
 }
 
 .item {

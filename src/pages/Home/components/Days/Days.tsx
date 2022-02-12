@@ -4,7 +4,6 @@ import sl from './Days.module.scss'
 
 import {dayWeather, Cord} from "../../../../store/types/types";
 import {Card} from "./Card";
-import {Tabs} from "./Tabs";
 import {fetchWeekWeather} from "../../../../store/thunks/fetchWeekWeather";
 import {useCustomDispatch, useCustomSelector} from "../../../../hooks/store";
 import {selectWeekWeatherData} from "../../../../store/selectors";
@@ -28,7 +27,7 @@ export const Days = ({coord}: Props) => {
 
     useEffect(() => {
         dispatch(fetchWeekWeather(coord))
-    }, [coord])
+    }, [coord, dispatch])
 
 
     const days: dayWeather[] = weekWeather.daily.slice(0, 7)
@@ -38,11 +37,11 @@ export const Days = ({coord}: Props) => {
     const daysToJsx = days.map((day: dayWeather) => <Card  day={day}/>)
 
     return (
-        <>
+        <div className={sl.wrapper}>
             <div className={sl.days}>
                 {daysToJsx}
             </div>
-        </>
+        </div>
 
     )
 }

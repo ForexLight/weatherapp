@@ -39,7 +39,6 @@ export const Days = ({coord}: Props) => {
 
     return (
         <>
-            <Tabs />
             <div className={sl.days}>
                 {daysToJsx}
             </div>

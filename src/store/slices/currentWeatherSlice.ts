@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Weather} from "../types/types";
-import {Axios, AxiosResponse} from "axios";
-import {stat} from "fs";
+import { AxiosResponse} from "axios";
 
 
 type Response = {

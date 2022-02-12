@@ -26,7 +26,7 @@ export const Home = (props: Props) => {
 
     useEffect(() => {
         dispatch(fetchCurrentWeather(city))
-    }, [city])
+    }, [city, dispatch])
 
 
     return (

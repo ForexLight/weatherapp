@@ -2,8 +2,8 @@ import React from "react"
 
 import sl from './Days.module.scss'
 import SharedSvgSelector from "../../../../assets/icons/shared/SharedSvgSelector";
-import {Day} from "./Days";
-import {dayWeather, weekWeather} from "../../../../store/types/types";
+
+import {dayWeather} from "../../../../store/types/types";
 import getDate from "../../../../shared/helper/getDate";
 
 interface Props {

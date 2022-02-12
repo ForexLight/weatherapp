@@ -4,8 +4,6 @@ interface Props {
     id: string
 }
 
-
-
 const SharedSvgSelector = (props:Props) => {
     switch (props.id) {
         case 'header-logo':

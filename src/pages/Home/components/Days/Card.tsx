@@ -15,17 +15,17 @@ export const Card = ({day}: Props) => {
     const { dt, temp, weather} = day
 
     const main = weather[0].main
-    console.log(dt)
+    const [dayString , dateString] = getDate(dt)
     return (
         <div className={sl.card}>
-            <div className={sl.card__day}>{getDate(dt)}</div>
-            <div className={sl.card__day_info}>{main}</div>
+            <div className={sl.card__day}>{dayString}</div>
+            <div className={sl.card__day_info}>{dateString}</div>
             <div className={sl.card__day_img}>
                 <SharedSvgSelector id={main}/>
             </div>
-            <div className={sl.card__day_temp}>{}</div>
-            <div className={sl.card__night_temp}>{}</div>
-            <div className={sl.info}>{}</div>
+            <div className={sl.card__day_temp}>{Math.floor(temp.max)+'°'}</div>
+            <div className={sl.card__night_temp}>{Math.floor(temp.min)+'°'}</div>
+            <div className={sl.info}>{main}</div>
         </div>
     )
 }

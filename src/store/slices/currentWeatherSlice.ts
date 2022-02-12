@@ -18,7 +18,7 @@ type CurrentWeather = {
 const initialState:CurrentWeather = {
     weather: {
         cod: 0,
-        cord: {
+        coord: {
             lon: 0,
             lat: 0
         },

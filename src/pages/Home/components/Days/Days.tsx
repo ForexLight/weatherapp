@@ -1,13 +1,16 @@
-import React from "react"
+import React, {useEffect} from "react"
 
 import sl from './Days.module.scss'
 
-import {dayWeather, weekWeather} from "../../../../store/types/types";
+import {dayWeather, Cord} from "../../../../store/types/types";
 import {Card} from "./Card";
 import {Tabs} from "./Tabs";
+import {fetchWeekWeather} from "../../../../store/thunks/fetchWeekWeather";
+import {useCustomDispatch, useCustomSelector} from "../../../../hooks/store";
+import {selectWeekWeatherData} from "../../../../store/selectors";
 
 interface Props {
-    weekWeather:weekWeather
+    coord:Cord
 }
 export interface Day {
     day: string;
@@ -18,7 +21,15 @@ export interface Day {
     info: string;
 }
 
-export const Days = ({weekWeather}: Props) => {
+export const Days = ({coord}: Props) => {
+
+    const dispatch = useCustomDispatch()
+    const weekWeather = useCustomSelector(selectWeekWeatherData).weather
+
+    useEffect(() => {
+        dispatch(fetchWeekWeather(coord))
+    }, [coord])
+
 
     const days: dayWeather[] = weekWeather.daily.slice(0, 7)
 

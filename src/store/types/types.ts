@@ -1,9 +1,6 @@
 export type Weather = {
     cod: number,
-    cord: {
-      lon: number,
-      lat: number
-    },
+    coord: Cord,
     main: {
         temp: number,
         humidity:number,
@@ -34,5 +31,10 @@ export type dayWeather = {
 
 export type weekWeather = {
     daily: dayWeather[]
+}
+
+export type Cord = {
+    lon: number,
+    lat: number
 }
 
